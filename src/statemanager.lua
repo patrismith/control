@@ -1,12 +1,10 @@
 local statemanager = {}
 
 function statemanager.nextState(state)
-   print("nextstate attempting to go to " .. state)
    statemanager:change(state)
 end
 
 function statemanager:change(state)
-   print("change attempting to load " .. state)
    self.currentstate = state
    self.states[self.currentstate]:load()
 end
@@ -23,7 +21,6 @@ end
 
 
 function statemanager:keypressed(key)
-   print("statemanager keypressed key = " .. key)
    self.states[self.currentstate]:keypressed(key)
 end
 
@@ -34,9 +31,11 @@ function statemanager:init()
                   Village = require('states.Village'),
                   Caves = require('states.Caves'),
                   GameOver = require('states.GameOver'),
-                  Test = require('states.Test')
+                  Test = require('states.Test'),
+                  LastCave = require('states.LastCave'),
+                  Credits = require('states.Credits'),
                  }
-   self:change("Village") -- state to start with
+   self:change("Splash") -- state to start with
 end
 
 

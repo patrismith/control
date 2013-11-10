@@ -11,6 +11,7 @@ function Sprite:init(params)
    self.img = params.img
    self.exploding = 0
    self.flipped = params.flipped or false
+   self.rotated = params.rotated or false
    self.visible = true
 
 end

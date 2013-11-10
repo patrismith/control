@@ -3,6 +3,12 @@ local State = class:new()
 
 function State:load()
 
+   if self.music then
+      love.audio.rewind(self.music)
+      love.audio.stop()
+      love.audio.play(self.music)
+   end
+
    -- all entities that will appear in or affect the scene, should be in this table
    self.objects = self.objectList or {}
    -- entities in objectList that will be drawn at some point
@@ -17,13 +23,11 @@ function State:load()
 
    -- initialize all entities with their parameters
    for k,v in pairs(self.paramList) do
-      print('loading ' .. k)
       self.objects[k]:init(v)
    end
 
    -- mark everything in self.static as active
    for _,v in ipairs(self.static) do
-      --print("found " .. v)
       self.objects[v].active = true
    end
 

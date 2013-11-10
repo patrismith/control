@@ -39,13 +39,15 @@ end
 
 function DialogueBoxSeries:keypressed(key)
 
-   if key == " " or self.k == 'any' then
-      if self.active then
-         self.curr = self.curr + 1
-         if not self.list[self.curr] then
-            self.active = false
-            --reset the dialogue in case we wanna call it again
-            self.curr = 1
+   if self.list[self.curr].complete then
+      if key == " " or self.k == 'any' then
+         if self.active then
+            self.curr = self.curr + 1
+            if not self.list[self.curr] then
+               self.active = false
+               --reset the dialogue in case we wanna call it again
+               self.curr = 1
+            end
          end
       end
    end

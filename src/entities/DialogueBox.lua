@@ -13,6 +13,7 @@ function DialogueBox:init(params)
    self.currtext = ""
    self.textcounter = 1
    self.img = params.img
+   self.complete = false
 
 end
 
@@ -22,6 +23,8 @@ function DialogueBox:update(dt)
    if self.textcounter <= self.text:len() then
       self.currtext = self.text:sub(1,self.textcounter)
       self.textcounter = self.textcounter + 1
+   else
+      self.complete = true
    end
 
 end

@@ -12,6 +12,8 @@ Sprite = require('entities.Sprite')
 SpriteMovement = require('entities.SpriteMovement')
 Pause = require('entities.Pause')
 Input = require('entities.Input')
+Fader = require('entities.Fader')
+Text = require('entities.Text')
 
 
 function love.load()
